@@ -6,7 +6,9 @@ A professional marketing website for a local house cleaning service in Post Fall
 
 ## Live Site
 
-[Coming soon - Netlify deployment pending]
+**Preview:** <https://stalwart-toffee-8cdb4f.netlify.app/>
+
+*Custom domain to be configured*
 
 ## About
 
