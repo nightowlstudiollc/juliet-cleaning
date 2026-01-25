@@ -1,5 +1,7 @@
 # T&J Cleaning
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ca907e14-6ba9-4bb5-8885-6d03c52f4b7a/deploy-status)](https://app.netlify.com/projects/stalwart-toffee-8cdb4f/deploys)
+
 A professional marketing website for a local house cleaning service in Post Falls, Idaho, serving the Inland Northwest.
 
 ## Live Site
