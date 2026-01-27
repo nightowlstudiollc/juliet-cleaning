@@ -16,6 +16,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&amp;family=Source+Sans+3:wght@400;600&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+
+  <!-- A/B Test: Detect variant early to prevent flash of incorrect layout -->
+  <script>
+    if (new URLSearchParams(window.location.search).get('v') === 'b') {
+      document.documentElement.classList.add('variant-b');
+    }
+  </script>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to main content</a>
@@ -273,5 +280,30 @@
       </div>
     </div>
   </footer>
+
+  <!-- A/B Test Switch (remove before production) -->
+  <button class="ab-switch" id="ab-switch" aria-label="Switch layout variant for A/B testing">View Variant B</button>
+  <script>
+    (function() {
+      var btn = document.getElementById('ab-switch');
+      if (!btn) return;
+
+      var isVariantB = document.documentElement.classList.contains('variant-b');
+      if (isVariantB) {
+        btn.textContent = 'View Variant A';
+      }
+
+      btn.addEventListener('click', function() {
+        var newParams = new URLSearchParams(window.location.search);
+        if (isVariantB) {
+          newParams.delete('v');
+        } else {
+          newParams.set('v', 'b');
+        }
+        var query = newParams.toString();
+        window.location.href = window.location.pathname + (query ? '?' + query : '');
+      });
+    })();
+  </script>
 </body>
 </html>
