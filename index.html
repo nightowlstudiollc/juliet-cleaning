@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Professional house cleaning services in the Inland Northwest area. Thorough, detail-oriented cleaning for homes and apartments. Serving Spokane, Spokane Valley, and the Coeur d'Alene area since 2021.">
-  <title>JulietCleans | Spokane &amp; Coeur d'Alene Area House Cleaning</title>
+  <title>T&amp;J Cleaning | Spokane &amp; Coeur d'Alene Area House Cleaning</title>
 
   <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
@@ -17,12 +17,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&amp;family=Source+Sans+3:wght@400;600&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 
-  <!-- A/B Test: Detect variant early to prevent flash of incorrect layout -->
-  <script>
-    if (new URLSearchParams(window.location.search).get('v') === 'b') {
-      document.documentElement.classList.add('variant-b');
-    }
-  </script>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to main content</a>
@@ -30,7 +24,7 @@
   <!-- Header -->
   <header class="site-header">
     <div class="container">
-      <a href="/" class="site-title">JulietCleans</a>
+      <a href="/" class="site-title">T&amp;J Cleaning</a>
       <nav aria-label="Main navigation">
         <ul class="nav-list">
           <li><a href="#services">Services</a></li>
@@ -48,7 +42,7 @@
       <div class="container">
         <div class="hero-layout">
           <div class="hero-content">
-            <h1>Professional house cleaning in the Inland Northwest area</h1>
+            <h1>Professional Cleanings for the Inland Northwest</h1>
             <p class="hero-tagline">
               Thorough, detail-oriented cleaning for homes and apartments in Spokane, Spokane Valley, and the Coeur d'Alene area. We treat your home like family.
             </p>
@@ -69,7 +63,7 @@
             </div>
           </div>
           <div class="hero-logo-wrapper">
-            <img src="images/logo-sage.png" alt="JulietCleans" class="hero-logo">
+            <img src="images/logo-azure.png" alt="T&amp;J Cleaning" class="hero-logo">
           </div>
         </div>
       </div>
@@ -154,7 +148,7 @@
         <div class="about-content">
           <h2>Who We Are</h2>
           <p>
-            Having served the Inland Northwest since 2021, we here at JulietCleans are experienced in providing thorough, quality cleanings that ensure that you come home to a refreshing, reset environment.
+            Having served the Inland Northwest since 2021, we here at T&amp;J Cleaning are experienced in providing thorough, quality cleanings that ensure that you come home to a refreshing, reset environment.
           </p>
           <p>
             We specialize in residential cleanings, making it our mission to alleviate the stresses of the everyday hustle and bustle by making the scrubbing and scouring one less thing on your to-do list. Whether there just aren't enough hours in the day or you'd like a professional shine to your living space, you need someone that you not only can trust, but someone that you can trust will do the job properly. Have pets? No stress. Kids to keep up with? Consider it taken care of.
@@ -186,14 +180,8 @@
             </p>
             
             <dl class="contact-details">
-              <!-- TODO: Add actual phone number and email before deployment -->
-              <!--
-              <dt>Phone</dt>
-              <dd><a href="tel:+12081234567">(208) 123-4567</a></dd>
-
               <dt>Email</dt>
-              <dd><a href="mailto:contact@julietcleans.com">contact@julietcleans.com</a></dd>
-              -->
+              <dd><a href="mailto:juliet@tnjcleaning.com">juliet@tnjcleaning.com</a></dd>
 
               <dt>Service area</dt>
               <dd>Spokane, Spokane Valley, Liberty Lake, Post Falls, Coeur d'Alene, Hayden, Rathdrum, and surrounding areas</dd>
@@ -214,14 +202,9 @@
                 <input type="text" id="name" name="name" required autocomplete="name">
               </div>
               <div class="form-group">
-                <label for="phone">Phone number</label>
-                <input type="tel" id="phone" name="phone" required autocomplete="tel">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required autocomplete="email">
               </div>
-            </div>
-            
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required autocomplete="email">
             </div>
             
             <div class="form-row">
@@ -265,7 +248,7 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-main">
-          <p>JulietCleans, LLC · Post Falls, Idaho</p>
+          <p>T&amp;J Cleaning, LLC · Post Falls, Idaho</p>
           <p>
             <a href="https://www.thumbtack.com/id/post-falls/house-cleaning/tj-cleaning-llc/service/453572507345846278" target="_blank" rel="noopener">View profile on Thumbtack</a>
           </p>
@@ -280,30 +263,5 @@
       </div>
     </div>
   </footer>
-
-  <!-- A/B Test Switch (remove before production) -->
-  <button class="ab-switch" id="ab-switch" aria-label="Switch layout variant for A/B testing">View Variant B</button>
-  <script>
-    (function() {
-      var btn = document.getElementById('ab-switch');
-      if (!btn) return;
-
-      var isVariantB = document.documentElement.classList.contains('variant-b');
-      if (isVariantB) {
-        btn.textContent = 'View Variant A';
-      }
-
-      btn.addEventListener('click', function() {
-        var newParams = new URLSearchParams(window.location.search);
-        if (isVariantB) {
-          newParams.delete('v');
-        } else {
-          newParams.set('v', 'b');
-        }
-        var query = newParams.toString();
-        window.location.href = window.location.pathname + (query ? '?' + query : '');
-      });
-    })();
-  </script>
 </body>
 </html>

@@ -2,11 +2,11 @@
        CSS Custom Properties
        ======================================== */
 :root {
-  /* Colors - warm neutrals with sage accent */
+  /* Colors - warm neutrals with azure accent */
   --color-text: #2d3436;
   --color-text-light: #636e72;
-  --color-accent: #6b7c5e;
-  --color-accent-light: #8a9a7c;
+  --color-accent: #1520a6;
+  --color-accent-light: #4650be;
   --color-bg: #fdfcfa;
   --color-bg-alt: #f5f3ef;
   --color-border: #e0dcd4;
@@ -868,47 +868,4 @@ main {
 }
 .contact {
   order: 5;
-}
-
-/* Variant B: About before Services */
-/* Note: .hero stays at order: 1, .contact stays at order: 5 */
-html.variant-b .about {
-  order: 2;
-}
-html.variant-b .services {
-  order: 3;
-}
-html.variant-b .reviews {
-  order: 4;
-}
-
-/* A/B Test Switch Button */
-.ab-switch {
-  position: fixed;
-  bottom: var(--space-md);
-  right: var(--space-md);
-  background: var(--color-accent);
-  color: var(--color-white);
-  border: none;
-  padding: var(--space-xs) var(--space-sm);
-  border-radius: 4px;
-  font-family: var(--font-body);
-  font-size: 0.875rem;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  transition:
-    background 0.2s ease,
-    transform 0.2s ease;
-  z-index: 1000;
-}
-
-.ab-switch:hover {
-  background: var(--color-accent-light);
-  transform: translateY(-1px);
-}
-
-.ab-switch:focus {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
 }
