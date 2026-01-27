@@ -844,3 +844,71 @@ section {
 .legal-page li {
   margin-bottom: var(--space-sm);
 }
+
+/* ========================================
+   A/B Test: Section Ordering
+   ======================================== */
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Default order (A): Services before About */
+.hero {
+  order: 1;
+}
+.services {
+  order: 2;
+}
+.reviews {
+  order: 3;
+}
+.about {
+  order: 4;
+}
+.contact {
+  order: 5;
+}
+
+/* Variant B: About before Services */
+/* Note: .hero stays at order: 1, .contact stays at order: 5 */
+html.variant-b .about {
+  order: 2;
+}
+html.variant-b .services {
+  order: 3;
+}
+html.variant-b .reviews {
+  order: 4;
+}
+
+/* A/B Test Switch Button */
+.ab-switch {
+  position: fixed;
+  bottom: var(--space-md);
+  right: var(--space-md);
+  background: var(--color-accent);
+  color: var(--color-white);
+  border: none;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+  z-index: 1000;
+}
+
+.ab-switch:hover {
+  background: var(--color-accent-light);
+  transform: translateY(-1px);
+}
+
+.ab-switch:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
