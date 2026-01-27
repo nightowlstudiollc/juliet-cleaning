@@ -265,8 +265,9 @@ section {
 
 @media (max-width: 48rem) {
   .hero-layout {
+    position: relative;
     grid-template-columns: 1fr;
-    gap: var(--space-lg);
+    gap: 0;
   }
 }
 
@@ -284,8 +285,26 @@ section {
 }
 
 @media (max-width: 48rem) {
+  .hero-logo-wrapper {
+    position: absolute;
+    top: 50%;
+    right: -10%;
+    transform: translateY(-50%);
+    width: 80%;
+    max-width: 20rem;
+    opacity: 0.15;
+    z-index: 0;
+    pointer-events: none;
+  }
+
   .hero-logo {
-    max-height: 16rem;
+    max-height: none;
+    width: 100%;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
   }
 }
 
