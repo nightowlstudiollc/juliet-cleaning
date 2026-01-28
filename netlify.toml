@@ -1,0 +1,15 @@
+[build]
+  publish = "."
+
+# Pretty URLs - enable trailing slash removal and HTML extension handling
+[build.processing]
+  skip_processing = false
+
+[build.processing.html]
+  pretty_urls = true
+
+# Redirects for form success and other pages
+[[redirects]]
+  from = "/thank-you"
+  to = "/thank-you.html"
+  status = 200
