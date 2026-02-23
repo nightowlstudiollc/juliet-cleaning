@@ -703,11 +703,14 @@ section {
   padding-left: var(--space-md);
   list-style: disc;
   color: var(--color-text-light);
+  column-count: 2;
+  column-gap: var(--space-md);
 }
 
 .contact-details dd li {
   margin-bottom: 0.25rem;
   font-size: 0.9375rem;
+  break-inside: avoid;
 }
 
 .contact-form {
