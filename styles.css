@@ -2,14 +2,14 @@
        CSS Custom Properties
        ======================================== */
 :root {
-  /* Colors - warm neutrals with azure accent */
-  --color-text: #2d3436;
-  --color-text-light: #636e72;
-  --color-accent: #1520a6;
-  --color-accent-light: #4650be;
-  --color-bg: #fdfcfa;
-  --color-bg-alt: #f5f3ef;
-  --color-border: #e0dcd4;
+  /* Colors - professional blue palette from business card */
+  --color-text: #103b66; /* "T&J Cleaning" text */
+  --color-text-light: #214582; /* "Scrubbing 'til it Sparkles" tagline */
+  --color-accent: #2a6eac; /* Blue borders - primary accent */
+  --color-accent-light: #accbd6; /* House/highlights color */
+  --color-bg: #f1fafc; /* Pale blue background */
+  --color-bg-alt: #e5f4f8; /* Slightly darker blue for sections */
+  --color-border: #c5d9e0; /* Muted blue border */
   --color-white: #ffffff;
 
   /* Typography */
@@ -246,7 +246,7 @@ section {
        ======================================== */
 .hero {
   padding: var(--space-xl) 0 var(--space-2xl);
-  background: linear-gradient(135deg, var(--color-bg-alt) 0%, #eae7df 100%);
+  background: linear-gradient(135deg, var(--color-bg-alt) 0%, #d8eef5 100%);
   position: relative;
   overflow: hidden;
 }
@@ -365,7 +365,7 @@ section {
     var(--color-accent-light) 100%
   );
   color: var(--color-white);
-  box-shadow: 0 2px 8px rgba(107, 124, 94, 0.25);
+  box-shadow: 0 2px 8px rgba(42, 110, 172, 0.25);
 }
 
 .btn-primary:hover {
@@ -423,7 +423,7 @@ section {
   background: var(--color-bg);
   border-radius: var(--border-radius);
   border: 1px solid var(--color-border);
-  box-shadow: 0 2px 8px rgba(107, 124, 94, 0.06);
+  box-shadow: 0 2px 8px rgba(42, 110, 172, 0.06);
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
@@ -444,7 +444,7 @@ section {
 
 .service-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(107, 124, 94, 0.12);
+  box-shadow: 0 4px 16px rgba(42, 110, 172, 0.12);
 }
 
 .service-card:hover::before {
@@ -580,7 +580,7 @@ section {
   background: var(--color-white);
   border-radius: var(--border-radius);
   border: 1px solid var(--color-border);
-  box-shadow: 0 2px 8px rgba(107, 124, 94, 0.06);
+  box-shadow: 0 2px 8px rgba(42, 110, 172, 0.06);
   position: relative;
   transition: box-shadow 0.2s ease;
 }
@@ -598,7 +598,7 @@ section {
 }
 
 .review-card:hover {
-  box-shadow: 0 4px 16px rgba(107, 124, 94, 0.1);
+  box-shadow: 0 4px 16px rgba(42, 110, 172, 0.1);
 }
 
 .review-text {
@@ -718,7 +718,7 @@ section {
   padding: var(--space-lg);
   border-radius: var(--border-radius);
   border: 1px solid var(--color-border);
-  box-shadow: 0 4px 20px rgba(107, 124, 94, 0.08);
+  box-shadow: 0 4px 20px rgba(42, 110, 172, 0.08);
 }
 
 .form-group {
@@ -750,7 +750,7 @@ section {
 .form-group textarea:focus {
   outline: none;
   border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgba(107, 124, 94, 0.15);
+  box-shadow: 0 0 0 3px rgba(42, 110, 172, 0.15);
 }
 
 .form-group textarea {
