@@ -496,25 +496,15 @@ section {
 
 .additional-services ul {
   margin: 0;
-  padding: 0;
-  list-style: none;
+  padding-left: var(--space-md);
+  list-style: disc;
   text-align: left;
-  display: inline-block;
 }
 
 .additional-services li {
   margin-bottom: 0.25rem;
   font-size: 0.9375rem;
   color: var(--color-text-light);
-  position: relative;
-  padding-left: var(--space-md);
-}
-
-.additional-services li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: var(--color-accent);
 }
 
 /* ========================================
