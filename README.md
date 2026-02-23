@@ -8,6 +8,8 @@ Live at [tnjcleaning.com](https://tnjcleaning.com).
 
 ## How to edit the site
 
+📖 **[Complete Editing Guide: EDITING-COOKBOOK.md](EDITING-COOKBOOK.md)** — Step-by-step recipes for all common edits.
+
 You don't need any special software. Everything happens on GitHub in your browser.
 
 ### Quick version
