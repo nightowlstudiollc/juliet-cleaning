@@ -475,6 +475,48 @@ section {
   font-size: 0.9375rem;
 }
 
+/* Additional Services Callout */
+.additional-services {
+  max-width: 500px;
+  margin: var(--space-lg) auto 0;
+  padding: var(--space-md);
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  text-align: center;
+}
+
+.additional-services h3 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.125rem;
+  margin-bottom: var(--space-sm);
+  color: var(--color-text);
+}
+
+.additional-services ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+  display: inline-block;
+}
+
+.additional-services li {
+  margin-bottom: 0.25rem;
+  font-size: 0.9375rem;
+  color: var(--color-text-light);
+  position: relative;
+  padding-left: var(--space-md);
+}
+
+.additional-services li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+
 /* ========================================
        Reviews
        ======================================== */
@@ -654,6 +696,18 @@ section {
 
 .contact-details dd {
   color: var(--color-text-light);
+}
+
+.contact-details dd ul {
+  margin: var(--space-xs) 0 0 0;
+  padding-left: var(--space-md);
+  list-style: disc;
+  color: var(--color-text-light);
+}
+
+.contact-details dd li {
+  margin-bottom: 0.25rem;
+  font-size: 0.9375rem;
 }
 
 .contact-form {
