@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Validate HTML with Nu Html Checker
         uses: Cyb3r-Jak3/html5validator-action@v8.0.0
