@@ -35,7 +35,17 @@ if [[ ! -f "${INDEX}" ]]; then
   exit 1
 fi
 
-form_block="$(sed -n '/<form[^>]*class="contact-form"/,/<\/form>/p' "${INDEX}")"
+# Extract the contact form block. Buffering starts at a bare <form rather than
+# at class="contact-form", because a tag split across lines carries that
+# attribute on a later line and a same-line match would never fire. Each
+# <form>...</form> block is buffered in turn and only the one carrying
+# class="contact-form" is printed, so an unrelated second form (a newsletter
+# signup, say) placed before the contact form does not shadow it.
+form_block="$(awk '
+  /<form/     { inform = 1; buf = "" }
+  inform      { buf = buf $0 "\n" }
+  /<\/form>/  { if (inform && buf ~ /class="contact-form"/) printf "%s", buf; inform = 0 }
+' "${INDEX}")"
 
 if [[ -z "${form_block}" ]]; then
   fail 'no contact form block found in index.html'
@@ -44,7 +54,13 @@ if [[ -z "${form_block}" ]]; then
 fi
 pass 'contact form block present'
 
-form_open_tag="$(printf '%s' "${form_block}" | sed -n '1p')"
+# Collapse the whole block to one line and keep everything up to the first ">",
+# so a <form ...> tag split across several lines still yields a complete tag.
+# Reading only the first line would drop attributes onto invisible lines and
+# report them as missing.
+form_open_tag="$(printf '%s' "${form_block}" \
+  | tr '\n' ' ' \
+  | sed -n 's/\(<form[^>]*>\).*/\1/p')"
 
 if [[ "${form_open_tag}" == *'data-netlify="true"'* ]]; then
   pass 'form carries data-netlify="true"'
@@ -132,6 +148,13 @@ fi
 
 # --- The other pretty-URL rewrites the site's own links depend on ---
 
+# Checked in _redirects only, unlike /thank-you which is checked in both files.
+# This asymmetry is intentional: netlify.toml declares a [[redirects]] rule for
+# /thank-you alone, so that route is load-bearing in both files and both must
+# agree. /privacy and /terms have no netlify.toml counterpart -- they resolve
+# through _redirects (with pretty_urls as a fallback), so _redirects is the only
+# file that can be checked. Add a netlify.toml check here only if these routes
+# gain [[redirects]] entries.
 for page in privacy terms; do
   if [[ ! -f "${REPO_ROOT}/${page}.html" ]]; then
     fail "${page}.html is missing"
