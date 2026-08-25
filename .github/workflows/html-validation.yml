@@ -58,7 +58,15 @@ jobs:
           # against the repo root, the way Netlify serves them. Without it every
           # such link is reported unresolvable -- 20 false errors across 4 files.
           # The Nu checker above already does the equivalent via `root: .`.
-          args: --verbose --no-progress --root-dir "$GITHUB_WORKSPACE" '**/*.html'
+          # --exclude '/thank-you$': the form action resolves only through the
+          # 200-rewrite in netlify.toml and _redirects, so no such file exists on
+          # disk and lychee cannot see redirect rules. That link is verified
+          # properly by check-redirect-contract.sh above, which asserts the rule
+          # is present in BOTH files -- a stronger check than lychee could make.
+          args: >-
+            --verbose --no-progress --root-dir "$GITHUB_WORKSPACE"
+            --exclude '/thank-you$'
+            '**/*.html'
           fail: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
