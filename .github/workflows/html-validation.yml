@@ -54,7 +54,11 @@ jobs:
       - name: Check for broken links
         uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8  # v2
         with:
-          args: --verbose --no-progress '**/*.html'
+          # --root-dir lets lychee resolve root-relative hrefs ("/", "/#services")
+          # against the repo root, the way Netlify serves them. Without it every
+          # such link is reported unresolvable -- 20 false errors across 4 files.
+          # The Nu checker above already does the equivalent via `root: .`.
+          args: --verbose --no-progress --root-dir "$GITHUB_WORKSPACE" '**/*.html'
           fail: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
