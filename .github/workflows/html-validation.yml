@@ -1,14 +1,29 @@
 name: HTML Validation
 
+# The paths filter previously listed only '**.html', so a PR touching only
+# netlify.toml or _redirects ran NO checks at all. Both files carry the
+# 200-rewrite that makes the contact form's /thank-you action resolve:
+# break it and the form submits into a 404 while CI stays green. Config and
+# CSS are included here so those changes are covered too. See issue #45.
 on:
   push:
     branches: [ main ]
     paths:
       - '**.html'
+      - '**.css'
+      - 'netlify.toml'
+      - '_redirects'
+      - '.github/workflows/html-validation.yml'
+      - 'scripts/**'
   pull_request:
     branches: [ main ]
     paths:
       - '**.html'
+      - '**.css'
+      - 'netlify.toml'
+      - '_redirects'
+      - '.github/workflows/html-validation.yml'
+      - 'scripts/**'
   workflow_dispatch:
 
 permissions:
@@ -23,6 +38,12 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7
         with:
           persist-credentials: false
+
+      # The form's action="/thank-you" is not a file: it resolves only via a
+      # 200-rewrite in netlify.toml and _redirects. Neither the Nu checker
+      # nor lychee inspects those files. See issue #45.
+      - name: Check redirect and form contract
+        run: ./scripts/check-redirect-contract.sh
 
       - name: Validate HTML with Nu Html Checker
         uses: Cyb3r-Jak3/html5validator-action@4ea5e57383ed7e14432ebbaae1b64893b7c5210b  # v8.0.0
